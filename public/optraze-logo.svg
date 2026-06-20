@@ -1,6 +1,0 @@
-<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g transform="translate(10, 10) scale(0.8)">
-                <circle cx="50" cy="40" r="23" stroke="currentColor" stroke-width="7" fill="none" class="svg-primary" style="stroke: rgb(129, 140, 248);"/>
-                <path d="M 12,65 Q 50,86 88,65" stroke="currentColor" stroke-width="7" stroke-linecap="round" fill="none" class="svg-accent" style="stroke: rgb(34, 211, 238);"/>
-            </g>
-        </svg>
