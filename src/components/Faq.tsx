@@ -43,7 +43,7 @@ export function Faq() {
             </Reveal>
           </div>
 
-          <Reveal delay={80} className="border border-line">
+          <Reveal delay={80} className="border border-line bg-card">
             <Accordion className="px-6">
               {QA.map((item) => (
                 <AccordionItem key={item.q} value={item.q}>

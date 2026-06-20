@@ -135,7 +135,7 @@
   --color-line-strong: rgba(11, 12, 16, 0.26);
   --color-line-ink: #0b0c10;
 
-  --color-live: #18a558;
+  --color-live: #0f7a40;
 
   --font-display:
     "Space Grotesk Variable", "Grotesk Fallback", system-ui, sans-serif;
@@ -151,7 +151,7 @@
   --text-2xl: clamp(1.5rem, 1.22rem + 1.24vw, 2.25rem);
   --text-3xl: clamp(1.875rem, 1.42rem + 2.07vw, 3rem);
   --text-4xl: clamp(2.25rem, 1.5rem + 3.3vw, 4.75rem);
-  --text-hero: clamp(3rem, 1.1rem + 8.6vw, 8.5rem);
+  --text-hero: clamp(2.5rem, 1.1rem + 4.6vw, 4.75rem);
 
   --ease-micro: cubic-bezier(0.34, 1.56, 0.64, 1);
   --ease-medium: cubic-bezier(0.32, 0.72, 0, 1);
@@ -391,14 +391,26 @@
   display: inline-block;
   white-space: pre;
 }
+/* transform-only so the headline (LCP) paints opaque at first frame */
 .js .word {
-  opacity: 0;
   transform: translateY(0.5em);
   animation: word-rise 0.6s var(--ease-emphatic) forwards;
   animation-delay: var(--delay, 0ms);
 }
 
 @keyframes word-rise {
+  from {
+    transform: translateY(0.5em);
+  }
+  to {
+    transform: none;
+  }
+}
+@keyframes rise-fade {
+  from {
+    opacity: 0;
+    transform: translateY(0.6em);
+  }
   to {
     opacity: 1;
     transform: none;

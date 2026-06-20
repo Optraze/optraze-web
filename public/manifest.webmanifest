@@ -4,8 +4,8 @@
 	"description": "The infrastructure layer for conversational and voice AI.",
 	"start_url": "/",
 	"display": "standalone",
-	"theme_color": "#0B0C10",
-	"background_color": "#0B0C10",
+	"theme_color": "#F4F3EE",
+	"background_color": "#F4F3EE",
 	"icons": [
 		{ "src": "/icon-192.png", "type": "image/png", "sizes": "192x192" },
 		{ "src": "/icon-512.png", "type": "image/png", "sizes": "512x512" },

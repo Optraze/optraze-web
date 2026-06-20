@@ -24,14 +24,6 @@ const COLUMNS = [
       { label: 'Status', href: 'https://convomem.com', external: true },
     ],
   },
-  {
-    title: 'Legal',
-    links: [
-      { label: 'Privacy', href: '#' },
-      { label: 'Terms', href: '#' },
-      { label: 'DPA', href: '#' },
-    ],
-  },
 ]
 
 const SOCIALS = [
@@ -63,7 +55,7 @@ export function Footer() {
               The infrastructure layer for conversational &amp; voice AI.
             </p>
           </div>
-          <div className="grid grid-cols-2 gap-8 sm:grid-cols-4">
+          <div className="grid grid-cols-2 gap-8 sm:grid-cols-3">
             {COLUMNS.map((col) => (
               <div key={col.title}>
                 <p className="font-mono text-xs uppercase tracking-[0.16em] text-ink-3">
@@ -100,7 +92,6 @@ export function Footer() {
                 href={s.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={s.label}
                 className="flex h-9 w-9 items-center justify-center text-ink-3 transition-colors hover:text-ink"
               >
                 <svg
@@ -112,7 +103,7 @@ export function Footer() {
                 >
                   <path d={s.path} />
                 </svg>
-                <span className="sr-only">{s.label}</span>
+                <span className="sr-only">Optraze on {s.label}</span>
               </a>
             ))}
           </div>

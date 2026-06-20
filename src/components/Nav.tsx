@@ -79,6 +79,7 @@ export function Nav() {
             className="-mr-2 flex h-10 w-10 items-center justify-center text-ink md:hidden"
             aria-label={open ? 'Close menu' : 'Open menu'}
             aria-expanded={open}
+            aria-controls="mobile-menu"
             onClick={() => setOpen((v) => !v)}
           >
             <span className="relative block h-4 w-5">
@@ -106,6 +107,9 @@ export function Nav() {
       </div>
 
       <div
+        id="mobile-menu"
+        aria-hidden={!open}
+        inert={!open || undefined}
         className={cx(
           'fixed inset-0 z-40 bg-paper transition-opacity duration-300 md:hidden',
           open ? 'opacity-100' : 'pointer-events-none opacity-0'

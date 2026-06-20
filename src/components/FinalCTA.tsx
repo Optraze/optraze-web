@@ -12,7 +12,7 @@ export function FinalCTA() {
         }}
       />
       <Container className="relative">
-        <div className="flex flex-col items-start gap-7 py-24 md:py-32">
+        <div className="section flex flex-col items-start gap-7">
           <Reveal
             as="h2"
             className="max-w-[16ch] text-4xl text-[var(--color-paper)]"

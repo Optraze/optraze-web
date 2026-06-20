@@ -8,15 +8,13 @@ import type { CSSProperties } from 'react'
 import type { ShaderMaterial } from 'three'
 
 /**
- * Optraze hero — "contour field".
- * A single fullscreen triangle draws flowing topographic isolines of a
- * domain-warped fBM field, inked in indigo->cyan on paper. It reads as layers of
- * memory / sound contours resonating through a medium; the cursor displaces the
- * field, and the left edge is kept clean so the headline stays crisp.
- * No drei — a hand-rolled clip-space triangle keeps the client chunk small.
+ * Optraze contour field — a single fullscreen triangle drawing flowing
+ * topographic isolines of a domain-warped fBM, inked indigo->cyan on paper.
+ * Used as a fixed, site-wide living backdrop (and behind the hero). The left
+ * edge is gently faded so left-aligned headings stay crisp. `strength` controls
+ * how present the lines are. No drei — a hand-rolled clip-space triangle.
  */
 
-// fullscreen triangle in clip space + matching uvs
 const POSITIONS = new Float32Array([-1, -1, 0, 3, -1, 0, -1, 3, 0])
 const UVS = new Float32Array([0, 0, 2, 0, 0, 2])
 
@@ -32,6 +30,7 @@ const fragmentShader = /* glsl */ `
 	precision highp float;
 	varying vec2 vUv;
 	uniform float u_time;
+	uniform float u_strength;
 	uniform vec2 u_mouse;
 	uniform vec2 u_res;
 
@@ -83,37 +82,33 @@ const fragmentShader = /* glsl */ `
 
 		vec2 mo = u_mouse - 0.5;
 		mo.x *= aspect;
-		p += mo * 0.6;
+		p += mo * 0.5;
 
-		float t = u_time * 0.05;
+		float t = u_time * 0.045;
 		vec2 w = vec2(fbm(p + t), fbm(p + vec2(4.7, 2.1) - t));
 		float field = fbm(p + 1.3 * w);
 
-		// isolines: distance to nearest contour level
-		float f = field * 6.0 + t * 1.2;
+		float f = field * 6.0 + t * 1.1;
 		float d = abs(fract(f) - 0.5);
 		float aa = fwidth(f) * 1.25;
 		float line = 1.0 - smoothstep(0.0, aa, d);
 
-		// ink colour by field value
 		vec3 indigo = vec3(0.310, 0.275, 0.898);
 		vec3 cyan   = vec3(0.024, 0.714, 0.831);
 		vec3 ink    = mix(indigo, cyan, smoothstep(-0.7, 0.7, field));
+		vec3 paper  = vec3(0.957, 0.953, 0.933);
 
-		vec3 paper = vec3(0.957, 0.953, 0.933);
-
-		// keep the left edge clean for the headline; strengthen toward the right
-		float edge = smoothstep(0.02, 0.46, vUv.x);
-		// faint field tint between contours adds depth without clutter
-		float tint = smoothstep(0.2, 0.9, field) * 0.05 * edge;
-		float cov = line * edge * 0.82;
+		// gentle left fade keeps left-aligned headings crisp site-wide
+		float edge = mix(0.42, 1.0, smoothstep(0.0, 0.42, vUv.x));
+		float tint = smoothstep(0.2, 0.9, field) * 0.04 * edge;
+		float cov = line * edge * u_strength;
 
 		vec3 col = mix(paper, ink, clamp(cov + tint, 0.0, 1.0));
 		gl_FragColor = vec4(col, 1.0);
 	}
 `
 
-function Field() {
+function Field({ strength }: { strength: number }) {
   const ref = useRef<ShaderMaterial>(null)
   const target = useRef(new Vector2(0.5, 0.5))
   const current = useRef(new Vector2(0.5, 0.5))
@@ -122,10 +117,11 @@ function Field() {
   const uniforms = useMemo(
     () => ({
       u_time: { value: 0 },
+      u_strength: { value: strength },
       u_mouse: { value: new Vector2(0.5, 0.5) },
       u_res: { value: new Vector2(size.width, size.height) },
     }),
-    [size.width, size.height]
+    [size.width, size.height, strength]
   )
 
   useEffect(() => {
@@ -143,7 +139,8 @@ function Field() {
     const m = ref.current
     if (!m) return
     m.uniforms.u_time.value += Math.min(delta, 0.033)
-    current.current.lerp(target.current, 0.04)
+    m.uniforms.u_strength.value = strength
+    current.current.lerp(target.current, 0.035)
     m.uniforms.u_mouse.value.copy(current.current)
     m.uniforms.u_res.value.set(state.size.width, state.size.height)
   })
@@ -166,7 +163,13 @@ function Field() {
   )
 }
 
-export default function HeroCanvas({ paused = false }: { paused?: boolean }) {
+export default function ContourCanvas({
+  paused = false,
+  strength = 0.5,
+}: {
+  paused?: boolean
+  strength?: number
+}) {
   return (
     <Canvas
       dpr={[1, 2]}
@@ -179,7 +182,7 @@ export default function HeroCanvas({ paused = false }: { paused?: boolean }) {
       style={{ position: 'absolute', inset: 0 } as CSSProperties}
       aria-hidden="true"
     >
-      <Field />
+      <Field strength={strength} />
     </Canvas>
   )
 }

@@ -1,8 +1,10 @@
-import { createElement, useEffect, useRef } from 'react'
+import { createElement, useEffect, useId, useRef } from 'react'
 
 import type { CSSProperties, ElementType, ReactNode } from 'react'
 
-import { Button } from './ui/button'
+import { cn } from '@/lib/utils'
+
+import { buttonVariants } from './ui/button'
 
 export function cx(...parts: Array<string | false | null | undefined>): string {
   return parts.filter(Boolean).join(' ')
@@ -158,20 +160,17 @@ export function LinkButton({
   className,
   onClick,
 }: LinkButtonProps) {
-  const anchor = (
-    // biome-ignore lint/a11y/useAnchorContent: content injected by Base UI render
+  const link = (
     <a
       href={href}
       onClick={onClick}
+      className={cn(buttonVariants({ variant, size, className }))}
       {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-    />
-  )
-  const btn = (
-    <Button render={anchor} variant={variant} size={size} className={className}>
+    >
       {children}
-    </Button>
+    </a>
   )
-  return magnetic ? <Magnetic>{btn}</Magnetic> : btn
+  return magnetic ? <Magnetic>{link}</Magnetic> : link
 }
 
 /* -------------------------------------------------------------------- Icons */
@@ -200,6 +199,7 @@ export function ArrowRight({ className }: { className?: string }) {
 }
 
 export function Check({ className }: { className?: string }) {
+  const id = useId()
   return (
     <svg
       className={className}
@@ -211,13 +211,13 @@ export function Check({ className }: { className?: string }) {
     >
       <path
         d="M2.5 8.5 6 12l7-9"
-        stroke="url(#og-check)"
+        stroke={`url(#${id})`}
         strokeWidth="1.9"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <defs>
-        <linearGradient id="og-check" x1="2" y1="3" x2="13" y2="12">
+        <linearGradient id={id} x1="2" y1="3" x2="13" y2="12">
           <stop stopColor="#4f46e5" />
           <stop offset="1" stopColor="#06b6d4" />
         </linearGradient>

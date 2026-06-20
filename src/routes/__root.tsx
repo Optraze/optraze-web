@@ -7,6 +7,7 @@ import {
 
 import type { QueryClient } from '@tanstack/react-query'
 
+import { SiteBackdrop } from '../components/backdrop/SiteBackdrop'
 import appCss from '../styles.css?url'
 
 interface MyRouterContext {
@@ -175,6 +176,13 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
         href: '/fonts/inter-var.woff2',
         crossOrigin: 'anonymous',
       },
+      {
+        rel: 'preload',
+        as: 'font',
+        type: 'font/woff2',
+        href: '/fonts/space-mono-400.woff2',
+        crossOrigin: 'anonymous',
+      },
     ],
   }),
   shellComponent: RootDocument,
@@ -199,6 +207,13 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         />
       </head>
       <body>
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[200] focus:border focus:border-ink focus:bg-paper focus:px-4 focus:py-2 focus:font-mono focus:text-xs focus:uppercase focus:tracking-wider focus:text-ink"
+        >
+          Skip to content
+        </a>
+        <SiteBackdrop />
         <div className="grain" aria-hidden="true" />
         {children}
         {import.meta.env.DEV ? <DevTools /> : null}

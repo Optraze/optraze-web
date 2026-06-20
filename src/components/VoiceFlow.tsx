@@ -1,4 +1,12 @@
-import { ArrowRight, Check, Container, Eyebrow, LinkButton, Reveal } from './ui'
+import {
+  ArrowRight,
+  Check,
+  Container,
+  cx,
+  Eyebrow,
+  LinkButton,
+  Reveal,
+} from './ui'
 import { Badge } from './ui/badge'
 
 const CAPABILITIES = [
@@ -67,8 +75,14 @@ export function VoiceFlow() {
           </div>
 
           <div className="mt-10 grid border border-line bg-line gap-px sm:grid-cols-2">
-            {CAPABILITIES.map((c) => (
-              <div key={c.name} className="flex gap-3.5 bg-card p-7">
+            {CAPABILITIES.map((c, i) => (
+              <div
+                key={c.name}
+                className={cx(
+                  'flex gap-3.5 bg-card p-7',
+                  i === CAPABILITIES.length - 1 && 'sm:col-span-2'
+                )}
+              >
                 <Check className="mt-1 shrink-0" />
                 <div>
                   <h3 className="font-display text-lg text-ink">{c.name}</h3>

@@ -30,8 +30,8 @@ const FEATURES = [
 
 const STATS = [
   { figure: '∞', label: 'memory / customer' },
-  { figure: '4', label: 'channels unified' },
   { figure: '<20ms', label: 'recall · p95' },
+  { figure: '4', label: 'channels unified' },
   { figure: '0', label: 'vendor lock-in' },
 ]
 
@@ -91,14 +91,17 @@ export function ConvoMem() {
           ))}
         </div>
 
-        {/* stat band */}
-        <div className="mt-4 grid border border-line bg-line gap-px sm:grid-cols-4">
+        {/* stat band — matches ProofStrip treatment */}
+        <div className="mt-4 grid grid-cols-2 border border-line bg-line gap-px md:grid-cols-4">
           {STATS.map((s) => (
-            <div key={s.label} className="flex flex-col gap-1.5 bg-paper p-7">
-              <span className="font-display text-3xl font-semibold tracking-tight text-ink">
+            <div
+              key={s.label}
+              className="flex flex-col gap-2 bg-paper px-2 py-10 md:px-6"
+            >
+              <span className="font-display text-4xl font-semibold tracking-tight text-ink tabular-nums">
                 {s.figure}
               </span>
-              <span className="font-mono text-xs uppercase tracking-[0.14em] text-ink-3">
+              <span className="font-mono text-xs uppercase tracking-[0.16em] text-ink-3">
                 {s.label}
               </span>
             </div>
