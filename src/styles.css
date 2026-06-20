@@ -162,7 +162,16 @@
   --container-narrow: 760px;
 
   --animate-live-pulse: live-pulse 2.4s var(--ease-neutral) infinite;
-  --animate-marquee: marquee 40s linear infinite;
+  --animate-marquee: marquee 38s linear infinite;
+
+  /* soft elevation so cards lift off the quiet backdrop */
+  --shadow-soft:
+    0 1px 2px rgba(11, 12, 16, 0.05), 0 14px 34px -18px rgba(11, 12, 16, 0.22);
+  --shadow-pop:
+    0 2px 4px rgba(11, 12, 16, 0.06), 0 24px 50px -20px rgba(11, 12, 16, 0.3);
+  --shadow-cta:
+    0 10px 26px -10px rgba(79, 70, 229, 0.55),
+    0 2px 6px -2px rgba(11, 12, 16, 0.14);
 }
 
 /* ============================================================
@@ -178,6 +187,8 @@
     scroll-behavior: smooth;
     scroll-padding-top: 6rem;
     color-scheme: light;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-indigo) var(--color-paper-2);
   }
   html,
   body,
@@ -226,18 +237,22 @@
     outline-offset: 2px;
   }
   ::-webkit-scrollbar {
-    width: 12px;
-    height: 12px;
+    width: 11px;
+    height: 11px;
   }
   ::-webkit-scrollbar-track {
     background: var(--color-paper-2);
   }
   ::-webkit-scrollbar-thumb {
-    background: #cdcabf;
+    /* sharp on-brand gradient bar, inset by a paper border */
+    background: linear-gradient(180deg, var(--color-indigo), var(--color-cyan));
     border: 3px solid var(--color-paper-2);
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #b6b3a7;
+    background: linear-gradient(180deg, #4338ca, #0e7490);
+  }
+  ::-webkit-scrollbar-corner {
+    background: var(--color-paper-2);
   }
 }
 
@@ -434,6 +449,77 @@
   to {
     transform: translateX(-50%);
   }
+}
+@keyframes eq {
+  0%,
+  100% {
+    transform: scaleY(0.28);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+@keyframes chip-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ============================================================
+   CUSTOM CURSOR (square, on-brand — desktop/fine-pointer only)
+   ============================================================ */
+.custom-cursor,
+.custom-cursor a,
+.custom-cursor button,
+.custom-cursor [role="button"],
+.custom-cursor label,
+.custom-cursor summary {
+  cursor: none;
+}
+.custom-cursor input,
+.custom-cursor textarea,
+.custom-cursor select,
+.custom-cursor [contenteditable="true"] {
+  cursor: auto;
+}
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 200;
+  pointer-events: none;
+  will-change: transform;
+}
+.cursor-dot {
+  width: 6px;
+  height: 6px;
+  margin: -3px 0 0 -3px;
+  background: var(--color-indigo);
+}
+.cursor-ring {
+  width: 26px;
+  height: 26px;
+  margin: -13px 0 0 -13px;
+  border: 1.5px solid color-mix(in srgb, var(--color-indigo) 55%, transparent);
+  transition:
+    width 0.2s var(--ease-micro),
+    height 0.2s var(--ease-micro),
+    margin 0.2s var(--ease-micro),
+    border-color 0.2s var(--ease-neutral),
+    background-color 0.2s var(--ease-neutral);
+}
+.cursor-ring.is-hovering {
+  width: 44px;
+  height: 44px;
+  margin: -22px 0 0 -22px;
+  border-color: var(--color-cyan);
+  background: color-mix(in srgb, var(--color-indigo) 9%, transparent);
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -8,6 +8,7 @@ import {
 import type { QueryClient } from '@tanstack/react-query'
 
 import { SiteBackdrop } from '../components/backdrop/SiteBackdrop'
+import { CursorFollower } from '../components/CursorFollower'
 import appCss from '../styles.css?url'
 
 interface MyRouterContext {
@@ -214,6 +215,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
           Skip to content
         </a>
         <SiteBackdrop />
+        <CursorFollower />
         <div className="grain" aria-hidden="true" />
         {children}
         {import.meta.env.DEV ? <DevTools /> : null}

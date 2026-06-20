@@ -28,13 +28,6 @@ const FEATURES = [
   },
 ]
 
-const STATS = [
-  { figure: '∞', label: 'memory / customer' },
-  { figure: '<20ms', label: 'recall · p95' },
-  { figure: '4', label: 'channels unified' },
-  { figure: '0', label: 'vendor lock-in' },
-]
-
 export function ConvoMem() {
   return (
     <section
@@ -75,12 +68,12 @@ export function ConvoMem() {
         </div>
 
         {/* features as a crisp bordered grid */}
-        <div className="mt-12 grid border border-line bg-line gap-px sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid border border-line bg-line gap-px shadow-soft sm:grid-cols-2 lg:grid-cols-3">
           {FEATURES.map((f, i) => (
             <Reveal
               key={f.name}
               delay={i * 40}
-              className="flex gap-3.5 bg-paper p-7"
+              className="flex gap-3.5 bg-card p-7"
             >
               <Check className="mt-1 shrink-0" />
               <div>
@@ -88,23 +81,6 @@ export function ConvoMem() {
                 <p className="mt-1.5 text-base text-ink-2">{f.desc}</p>
               </div>
             </Reveal>
-          ))}
-        </div>
-
-        {/* stat band — matches ProofStrip treatment */}
-        <div className="mt-4 grid grid-cols-2 border border-line bg-line gap-px md:grid-cols-4">
-          {STATS.map((s) => (
-            <div
-              key={s.label}
-              className="flex flex-col gap-2 bg-paper px-2 py-10 md:px-6"
-            >
-              <span className="font-display text-4xl font-semibold tracking-tight text-ink tabular-nums">
-                {s.figure}
-              </span>
-              <span className="font-mono text-xs uppercase tracking-[0.16em] text-ink-3">
-                {s.label}
-              </span>
-            </div>
           ))}
         </div>
 

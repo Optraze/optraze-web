@@ -129,7 +129,7 @@ function Tile({
   return (
     <Reveal
       delay={delay}
-      className={cx('flex flex-col bg-paper p-8 md:p-10', className)}
+      className={cx('flex flex-col bg-card p-8 md:p-10', className)}
     >
       {mark}
       <h3 className="mt-7 text-2xl text-ink">{title}</h3>
@@ -157,7 +157,7 @@ export function Platform() {
           </Reveal>
         </div>
 
-        <div className="mt-12 grid border border-line bg-line gap-px md:grid-cols-3">
+        <div className="mt-12 grid border border-line bg-line gap-px shadow-soft md:grid-cols-3">
           <Tile
             className="md:col-span-2"
             mark={<MemoryMark />}

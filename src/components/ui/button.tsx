@@ -11,7 +11,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default: 'bg-primary text-primary-foreground hover:bg-[#22232c]',
-        cta: 'border border-ink bg-[linear-gradient(108deg,#4f46e5,#06b6d4)] text-white shadow-[3px_3px_0_0_var(--color-ink)] hover:-translate-y-0.5 hover:shadow-[5px_5px_0_0_var(--color-ink)] active:translate-y-0 active:shadow-[2px_2px_0_0_var(--color-ink)]',
+        cta: 'bg-[linear-gradient(108deg,#4f46e5,#06b6d4)] text-white shadow-cta hover:-translate-y-0.5 hover:brightness-[1.06] active:translate-y-0 active:brightness-100',
         outline:
           'border border-ink bg-transparent text-ink hover:bg-ink hover:text-paper',
         secondary: 'bg-secondary text-secondary-foreground hover:bg-accent',

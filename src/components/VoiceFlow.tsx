@@ -50,7 +50,7 @@ export function VoiceFlow() {
       className="section scroll-mt-20 border-b border-line"
     >
       <Container>
-        <Reveal className="card-ink p-8 md:p-12">
+        <Reveal className="card-ink shadow-pop p-8 md:p-12">
           <Badge
             variant="outline"
             className="h-auto gap-2 border-ink px-3 py-1.5 font-mono text-[0.7rem] uppercase tracking-[0.14em]"
@@ -92,18 +92,23 @@ export function VoiceFlow() {
             ))}
           </div>
 
-          <div className="mt-9 flex flex-wrap items-center gap-2">
-            <span className="mr-1 font-mono text-xs uppercase tracking-[0.14em] text-ink-3">
+          <div className="mt-9">
+            <span className="font-mono text-xs uppercase tracking-[0.14em] text-ink-3">
               Works with
             </span>
-            {PROVIDERS.map((p) => (
-              <span
-                key={p}
-                className="border border-line bg-paper px-3 py-1 font-mono text-xs text-ink-2"
-              >
-                {p}
-              </span>
-            ))}
+            <div className="relative mt-3 overflow-hidden [mask-image:linear-gradient(90deg,transparent,#000_7%,#000_93%,transparent)]">
+              <div className="flex w-max items-center gap-2 animate-marquee hover:[animation-play-state:paused]">
+                {[...PROVIDERS, ...PROVIDERS].map((p, i) => (
+                  <span
+                    // biome-ignore lint/suspicious/noArrayIndexKey: duplicated marquee track
+                    key={i}
+                    className="shrink-0 border border-line bg-secondary px-3 py-1 font-mono text-xs text-ink-2"
+                  >
+                    {p}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
 
           <div className="mt-10 flex flex-wrap items-center gap-3">

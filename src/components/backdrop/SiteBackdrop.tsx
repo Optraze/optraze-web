@@ -40,7 +40,11 @@ export function SiteBackdrop() {
       <div className="hero-fallback absolute inset-0" />
       {canvasOn ? (
         <Suspense fallback={null}>
-          <ContourCanvas paused={paused} strength={0.4} />
+          <ContourCanvas
+            paused={paused}
+            strengthHero={0.5}
+            strengthRest={0.12}
+          />
         </Suspense>
       ) : null}
     </div>

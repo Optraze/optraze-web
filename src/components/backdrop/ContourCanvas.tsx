@@ -108,7 +108,13 @@ const fragmentShader = /* glsl */ `
 	}
 `
 
-function Field({ strength }: { strength: number }) {
+function Field({
+  strengthHero,
+  strengthRest,
+}: {
+  strengthHero: number
+  strengthRest: number
+}) {
   const ref = useRef<ShaderMaterial>(null)
   const target = useRef(new Vector2(0.5, 0.5))
   const current = useRef(new Vector2(0.5, 0.5))
@@ -117,11 +123,11 @@ function Field({ strength }: { strength: number }) {
   const uniforms = useMemo(
     () => ({
       u_time: { value: 0 },
-      u_strength: { value: strength },
+      u_strength: { value: strengthHero },
       u_mouse: { value: new Vector2(0.5, 0.5) },
       u_res: { value: new Vector2(size.width, size.height) },
     }),
-    [size.width, size.height, strength]
+    [size.width, size.height, strengthHero]
   )
 
   useEffect(() => {
@@ -139,7 +145,10 @@ function Field({ strength }: { strength: number }) {
     const m = ref.current
     if (!m) return
     m.uniforms.u_time.value += Math.min(delta, 0.033)
-    m.uniforms.u_strength.value = strength
+    // rich in the hero, fading to a quiet texture once scrolled past it
+    const t = Math.min(window.scrollY / Math.max(window.innerHeight, 1), 1)
+    m.uniforms.u_strength.value =
+      strengthHero + (strengthRest - strengthHero) * t
     current.current.lerp(target.current, 0.035)
     m.uniforms.u_mouse.value.copy(current.current)
     m.uniforms.u_res.value.set(state.size.width, state.size.height)
@@ -165,10 +174,12 @@ function Field({ strength }: { strength: number }) {
 
 export default function ContourCanvas({
   paused = false,
-  strength = 0.5,
+  strengthHero = 0.5,
+  strengthRest = 0.12,
 }: {
   paused?: boolean
-  strength?: number
+  strengthHero?: number
+  strengthRest?: number
 }) {
   return (
     <Canvas
@@ -182,7 +193,7 @@ export default function ContourCanvas({
       style={{ position: 'absolute', inset: 0 } as CSSProperties}
       aria-hidden="true"
     >
-      <Field strength={strength} />
+      <Field strengthHero={strengthHero} strengthRest={strengthRest} />
     </Canvas>
   )
 }

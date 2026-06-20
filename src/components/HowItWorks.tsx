@@ -36,9 +36,9 @@ export function HowItWorks() {
           </Reveal>
         </div>
 
-        <ol className="mt-12 grid border border-line bg-line gap-px sm:grid-cols-2 lg:grid-cols-4">
+        <ol className="mt-12 grid border border-line bg-line gap-px shadow-soft sm:grid-cols-2 lg:grid-cols-4">
           {STEPS.map((s, i) => (
-            <Reveal as="li" key={s.n} delay={i * 70} className="bg-paper p-8">
+            <Reveal as="li" key={s.n} delay={i * 70} className="bg-card p-8">
               <span className="font-mono text-sm text-indigo">{s.n}</span>
               <div className="mt-6 h-px w-full bg-line" />
               <h3 className="mt-6 text-xl text-ink">{s.title}</h3>
