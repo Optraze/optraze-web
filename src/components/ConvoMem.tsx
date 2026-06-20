@@ -172,6 +172,44 @@ export function ConvoMem() {
           ))}
         </div>
 
+        {/* agent handoff — flagship */}
+        <Reveal className="mt-4 grid items-start gap-x-10 gap-y-8 border border-line bg-card p-8 shadow-soft md:grid-cols-[1.1fr_0.9fr] md:p-10">
+          <div>
+            <Eyebrow>Agent handoff</Eyebrow>
+            <h3 className="mt-4 max-w-[20ch] text-2xl text-ink">
+              When the bot taps out, your team doesn’t start from scratch.
+            </h3>
+            <p className="mt-3 max-w-[46ch] text-base text-ink-2">
+              Escalate to a human and ConvoMem hands them a brief, not a blank
+              screen — so they pick up exactly where the conversation broke
+              down, and the customer never repeats themselves. Drop it into your
+              help desk as an embed, with scoped read or write access.
+            </p>
+          </div>
+          <div className="border border-line bg-paper p-6">
+            <span className="font-mono text-[0.7rem] uppercase tracking-[0.16em] text-ink-3">
+              In the handoff brief
+            </span>
+            <ul className="mt-4 flex flex-col gap-3">
+              {[
+                'Who they are — resolved across channels',
+                'The journey — every touch, in order',
+                'Key facts — extracted, not retyped',
+                'Sentiment — how they feel right now',
+                'Open issue — what’s still unresolved',
+              ].map((item) => (
+                <li
+                  key={item}
+                  className="flex items-start gap-3 text-sm text-ink-2"
+                >
+                  <Check className="mt-0.5 shrink-0" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </Reveal>
+
         {/* proof stats */}
         <div className="mt-4 grid grid-cols-2 border border-line bg-line gap-px shadow-soft md:grid-cols-4">
           {STATS.map((s) => (
