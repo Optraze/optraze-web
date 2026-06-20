@@ -10,7 +10,6 @@ import { Nav } from '../components/Nav'
 import { Philosophy } from '../components/Philosophy'
 import { Platform } from '../components/Platform'
 import { Problem } from '../components/Problem'
-import { ProofStrip } from '../components/ProofStrip'
 import { VoiceFlow } from '../components/VoiceFlow'
 
 export const Route = createFileRoute('/')({ component: Home })
@@ -21,7 +20,6 @@ function Home() {
       <Nav />
       <main id="main">
         <Hero />
-        <ProofStrip />
         <Problem />
         <Platform />
         <ConvoMem />

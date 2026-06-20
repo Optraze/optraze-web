@@ -379,7 +379,7 @@
     position: relative;
     width: 7px;
     height: 7px;
-    border-radius: 9999px;
+    border-radius: 0; /* square — ping halo follows the shape */
     background: var(--color-live);
     box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-live) 70%, transparent);
     animation: var(--animate-live-pulse);
