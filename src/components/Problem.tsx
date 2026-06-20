@@ -5,22 +5,23 @@ export function Problem() {
     <section className="section border-b border-line">
       <Container narrow>
         <Reveal className="mb-7">
-          <Eyebrow>The problem</Eyebrow>
+          <Eyebrow>The thesis</Eyebrow>
         </Reveal>
         <Reveal as="h2" delay={40} className="text-4xl">
-          Most AI forgets you the second you hang up.
+          Most software was built before machines could understand us.
         </Reveal>
         <Reveal as="p" delay={100} className="mt-7 text-lg text-ink-2">
-          Voice bots, chat bots, and support agents lose the thread the moment a
-          session ends. The customer repeats their name, their order number,
-          their problem — every single time. The model is smart; the system
-          around it has no memory, no shared identity across channels, and no
-          real-time backbone. That gap is what Optraze closes.
+          Every category of software is being rebuilt for a world where the
+          product can remember, understand, and respond on its own. Most teams
+          bolt AI onto what already exists. We start from the other end —
+          building focused products that are AI-native from the first line, on
+          foundations we don&apos;t have to reinvent each time. That&apos;s the
+          company: Optraze ships those products.
         </Reveal>
         <Reveal delay={160} className="mt-12 border-l-2 border-ink pl-6">
           <blockquote className="font-display text-2xl font-medium leading-snug text-ink md:text-3xl">
-            Intelligence without continuity is just a very expensive way to
-            start over.
+            The next decade of software won&apos;t be AI-assisted. It&apos;ll be
+            AI-native — or it won&apos;t matter.
           </blockquote>
         </Reveal>
       </Container>

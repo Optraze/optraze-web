@@ -144,16 +144,25 @@ function Tile({
 export function Platform() {
   return (
     <section
-      id="platform"
+      id="approach"
       className="section scroll-mt-20 border-b border-line"
     >
       <Container>
         <div className="flex flex-col gap-5">
           <Reveal>
-            <Eyebrow>The Optraze platform</Eyebrow>
+            <Eyebrow>How we build</Eyebrow>
           </Reveal>
-          <Reveal as="h2" delay={60} className="max-w-[20ch] text-4xl">
-            Three layers that make conversational AI actually useful.
+          <Reveal as="h2" delay={60} className="max-w-[22ch] text-4xl">
+            Every product we ship stands on the same foundations.
+          </Reveal>
+          <Reveal
+            as="p"
+            delay={120}
+            className="max-w-[52ch] text-lg text-ink-2"
+          >
+            Memory, voice, and intelligence are hard to build once — so we build
+            them once, and reuse them across every product. New ideas ship
+            faster because the hard parts already exist.
           </Reveal>
         </div>
 
@@ -163,13 +172,13 @@ export function Platform() {
             mark={<MemoryMark />}
             title="Memory"
             body="Durable, searchable customer memory that survives every session. Facts get captured automatically; one person stays one profile across voice, chat, SMS, and email."
-            tag="Shipping today as ConvoMem"
+            tag="Powers ConvoMem"
           />
           <Tile
             mark={<VoiceMark />}
             title="Voice"
             body="Realtime voice orchestration with sub-second latency, interruption handling, and bring-your-own STT / TTS / LLM."
-            tag="In development — VoiceFlow"
+            tag="Powers VoiceFlow"
             delay={80}
           />
           <Tile
@@ -177,7 +186,7 @@ export function Platform() {
             mark={<IntelMark />}
             title="Intelligence"
             body="Sentiment, buying intent, churn risk, and a knowledge graph that connects everything a customer has ever told you."
-            tag="Built into every layer"
+            tag="In every product"
             delay={120}
           />
         </div>

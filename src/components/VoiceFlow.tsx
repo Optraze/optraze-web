@@ -62,7 +62,7 @@ export function VoiceFlow() {
 
           <div className="mt-6 grid gap-x-12 gap-y-6 lg:grid-cols-[1fr_auto] lg:items-end">
             <div>
-              <Eyebrow>Voice agent platform — VoiceFlow</Eyebrow>
+              <Eyebrow>Product 02 · VoiceFlow</Eyebrow>
               <h2 className="mt-5 max-w-[22ch] text-4xl">
                 Voice agents that listen, think, and speak in real time.
               </h2>

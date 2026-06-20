@@ -3,23 +3,23 @@ import { Container, Eyebrow, Reveal } from './ui'
 const STEPS = [
   {
     n: '01',
-    title: 'Connect your channels.',
-    desc: 'Point voice, chat, SMS, and email at Optraze.',
+    title: 'Find the gap.',
+    desc: 'Where a category hasn’t caught up to what AI can now do.',
   },
   {
     n: '02',
-    title: 'We capture and resolve.',
-    desc: 'Facts get extracted; identities merge into one profile.',
+    title: 'Build on foundations.',
+    desc: 'Reuse memory, voice, and intelligence instead of rebuilding them.',
   },
   {
     n: '03',
-    title: 'Your agent recalls in <20ms.',
-    desc: 'Context is there before the conversation starts.',
+    title: 'Ship something focused.',
+    desc: 'One sharp product with its own brand — never a bloated platform.',
   },
   {
     n: '04',
-    title: 'You read the signals.',
-    desc: 'Sentiment, intent, and risk — in plain language.',
+    title: 'Let it earn the next.',
+    desc: 'Real usage decides what we build after it.',
   },
 ]
 
@@ -29,10 +29,10 @@ export function HowItWorks() {
       <Container>
         <div className="flex flex-col gap-5">
           <Reveal>
-            <Eyebrow>How it fits together</Eyebrow>
+            <Eyebrow>The studio model</Eyebrow>
           </Reveal>
-          <Reveal as="h2" delay={60} className="max-w-[18ch] text-4xl">
-            One API call away from continuity.
+          <Reveal as="h2" delay={60} className="max-w-[20ch] text-4xl">
+            Built like a studio, run like a product team.
           </Reveal>
         </div>
 

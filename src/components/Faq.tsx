@@ -8,24 +8,24 @@ import {
 
 const QA = [
   {
-    q: 'What exactly does Optraze do?',
-    a: 'Optraze builds the foundational layers beneath conversational and voice AI — durable memory, realtime voice, and intelligence. You ship the product; we handle the infrastructure that makes it remember, understand, and respond.',
+    q: 'What is Optraze?',
+    a: 'Optraze is a product studio. We design, build, and run our own AI-native SaaS — focused products built on shared foundations of memory, voice, and intelligence.',
   },
   {
-    q: 'Is ConvoMem available today?',
-    a: 'Yes. ConvoMem is live at convomem.com with a 7-day free trial and no card required. It gives your agents durable customer memory across voice, chat, SMS, and email.',
+    q: 'What have you shipped so far?',
+    a: 'ConvoMem — durable customer memory for conversational AI — is live at convomem.com. VoiceFlow, a realtime voice-agent platform, is in development. More products are in the build queue.',
   },
   {
-    q: 'Will I get locked into a provider?',
-    a: 'No. Bring your own STT, TTS, and LLM, and keep ownership of your data. Zero vendor lock-in is a design constraint, not a marketing line.',
+    q: 'Are you an agency or a venture fund?',
+    a: 'Neither. We don’t do client work and we don’t invest in other people’s companies. We build and own our own products.',
   },
   {
-    q: 'How fast is memory recall?',
-    a: 'Under 20ms at p95 — context is available before the conversation starts, not fetched mid-call.',
+    q: 'Can I use your products today?',
+    a: 'Yes — ConvoMem is live with a free trial and no card required. VoiceFlow has an early-access waitlist you can join now.',
   },
   {
-    q: 'When is VoiceFlow launching?',
-    a: "VoiceFlow is in active development. Join the waitlist and we'll reach out with early access before the public launch.",
+    q: 'What ties the products together?',
+    a: 'The same foundations underneath all of them — memory, voice, and intelligence. Building those once means every new product ships faster and works better than starting from scratch.',
   },
 ]
 

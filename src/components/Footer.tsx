@@ -5,13 +5,14 @@ const COLUMNS = [
   {
     title: 'Products',
     links: [
-      { label: 'ConvoMem', href: '#convomem' },
+      { label: 'ConvoMem', href: 'https://convomem.com', external: true },
       { label: 'VoiceFlow', href: '#voiceflow' },
     ],
   },
   {
     title: 'Company',
     links: [
+      { label: 'Approach', href: '#approach' },
       { label: 'Philosophy', href: '#philosophy' },
       { label: 'Contact', href: 'mailto:hello@optraze.com' },
     ],
@@ -19,9 +20,8 @@ const COLUMNS = [
   {
     title: 'Resources',
     links: [
-      { label: 'Docs', href: 'https://convomem.com', external: true },
       { label: 'FAQ', href: '#faq' },
-      { label: 'Status', href: 'https://convomem.com', external: true },
+      { label: 'ConvoMem docs', href: 'https://convomem.com', external: true },
     ],
   },
 ]
@@ -52,7 +52,7 @@ export function Footer() {
           <div className="max-w-xs">
             <Logo />
             <p className="mt-4 text-sm text-ink-2">
-              The infrastructure layer for conversational &amp; voice AI.
+              A studio building the next generation of AI-native software.
             </p>
           </div>
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-3">

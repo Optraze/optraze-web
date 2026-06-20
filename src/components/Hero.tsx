@@ -2,16 +2,8 @@ import type { CSSProperties } from 'react'
 
 import { ArrowRight, Container, cssVars, Eyebrow, LinkButton } from './ui'
 
-const PRE = ['AI', 'that', 'talks', 'should', 'also']
-const GRAD = [
-  'remember,',
-  'understand,',
-  'and',
-  'respond',
-  'in',
-  'real',
-  'time.',
-]
+const PRE = ['We', 'build', 'the', 'next', 'generation', 'of']
+const GRAD = ['AI-native', 'software.']
 
 function Word({ children, delay }: { children: string; delay: number }) {
   return (
@@ -33,12 +25,12 @@ export function Hero() {
       className="relative flex min-h-[100svh] items-center overflow-hidden border-b border-line pt-28 pb-16"
     >
       <Container className="relative">
-        <div className="max-w-[58rem]">
+        <div className="max-w-[60rem]">
           <div className="reveal is-visible">
-            <Eyebrow>Infrastructure for conversational &amp; voice AI</Eyebrow>
+            <Eyebrow>Optraze · AI-native product studio</Eyebrow>
           </div>
 
-          <h1 className="mt-6 max-w-[20ch] text-hero font-bold leading-[0.95] tracking-[-0.045em] text-ink">
+          <h1 className="mt-6 max-w-[18ch] text-hero font-bold leading-[0.95] tracking-[-0.045em] text-ink">
             {PRE.map((w, i) => (
               <Word key={w} delay={i * 50}>
                 {w}
@@ -54,23 +46,23 @@ export function Hero() {
           </h1>
 
           <p
-            className="mt-7 max-w-[46ch] text-lg text-ink-2 opacity-0"
+            className="mt-7 max-w-[48ch] text-lg text-ink-2 opacity-0"
             style={fade(680)}
           >
-            Optraze builds the{' '}
+            Optraze is a studio building focused SaaS for a world where software
+            is expected to think — products with{' '}
             <span className="font-medium text-ink">
               memory, voice, and intelligence
             </span>{' '}
-            layers underneath conversational AI — so the products you ship
-            don&apos;t start every conversation from zero.
+            built in. ConvoMem is live. VoiceFlow is next. More is on the way.
           </p>
 
           <div
             className="mt-8 flex flex-wrap items-center gap-3 opacity-0"
             style={fade(820)}
           >
-            <LinkButton href="#platform" variant="cta" size="lg" magnetic>
-              Explore the platform
+            <LinkButton href="#products" variant="cta" size="lg" magnetic>
+              See what we build
             </LinkButton>
             <LinkButton
               href="https://convomem.com"
@@ -78,7 +70,7 @@ export function Hero() {
               variant="outline"
               size="lg"
             >
-              See ConvoMem live <ArrowRight />
+              ConvoMem is live <ArrowRight />
             </LinkButton>
           </div>
 
@@ -88,23 +80,23 @@ export function Hero() {
           >
             <div className="flex items-center gap-2">
               <span className="live-dot" />
-              <dt className="sr-only">Status</dt>
+              <dt className="sr-only">ConvoMem</dt>
               <dd className="tracking-wider">
-                <span className="text-live">LIVE</span> · CONVOMEM
+                CONVOMEM · <span className="text-live">LIVE</span>
               </dd>
             </div>
             <span className="h-3.5 w-px bg-line-strong" aria-hidden="true" />
             <div>
-              <dt className="sr-only">Recall latency</dt>
+              <dt className="sr-only">VoiceFlow</dt>
               <dd className="tracking-wider">
-                <span className="text-ink">&lt;20MS</span> RECALL P95
+                VOICEFLOW · <span className="text-ink">IN DEV</span>
               </dd>
             </div>
             <span className="h-3.5 w-px bg-line-strong" aria-hidden="true" />
             <div>
-              <dt className="sr-only">Channels</dt>
+              <dt className="sr-only">More products</dt>
               <dd className="tracking-wider">
-                <span className="text-ink">4</span> CHANNELS
+                MORE · <span className="text-ink">IN BUILD</span>
               </dd>
             </div>
           </dl>

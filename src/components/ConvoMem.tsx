@@ -102,10 +102,27 @@ function CountUp({
 export function ConvoMem() {
   return (
     <section
-      id="convomem"
+      id="products"
       className="section scroll-mt-20 border-b border-line"
     >
       <Container>
+        <div className="mb-14 flex flex-col gap-5">
+          <Reveal>
+            <Eyebrow>Our products</Eyebrow>
+          </Reveal>
+          <Reveal as="h2" delay={60} className="max-w-[24ch] text-4xl">
+            Focused products, shipped one at a time.
+          </Reveal>
+          <Reveal
+            as="p"
+            delay={120}
+            className="max-w-[54ch] text-lg text-ink-2"
+          >
+            Each one is its own product with its own home. Optraze designs,
+            builds, and runs them.
+          </Reveal>
+        </div>
+
         <Reveal className="mb-6">
           <Badge
             variant="outline"
@@ -121,7 +138,7 @@ export function ConvoMem() {
         <div className="grid gap-x-12 gap-y-6 lg:grid-cols-[1fr_auto] lg:items-end">
           <div>
             <Reveal>
-              <Eyebrow>Memory layer — ConvoMem</Eyebrow>
+              <Eyebrow>Product 01 · ConvoMem</Eyebrow>
             </Reveal>
             <Reveal as="h2" delay={60} className="mt-5 max-w-[20ch] text-4xl">
               Give your agents a memory that outlasts the call.
@@ -184,7 +201,7 @@ export function ConvoMem() {
             size="lg"
             magnetic
           >
-            Start free trial
+            Visit ConvoMem <ArrowRight />
           </LinkButton>
           <LinkButton
             href="https://convomem.com"
@@ -192,7 +209,7 @@ export function ConvoMem() {
             variant="outline"
             size="lg"
           >
-            Try the live demo <ArrowRight />
+            Start free trial
           </LinkButton>
           <span className="font-mono text-xs uppercase tracking-wider text-ink-3">
             7 days · no card

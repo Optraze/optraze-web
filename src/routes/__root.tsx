@@ -16,9 +16,9 @@ interface MyRouterContext {
 }
 
 const SITE = 'https://optraze.com'
-const TITLE = 'Optraze — Infrastructure for Conversational & Voice AI'
+const TITLE = 'Optraze — AI-Native Software Studio'
 const DESCRIPTION =
-  'Optraze builds the memory, voice, and intelligence layers under conversational and voice AI. ConvoMem gives agents durable customer memory; VoiceFlow brings realtime voice agents.'
+  'Optraze is a product studio building the next generation of AI-native SaaS — focused products on shared foundations of memory, voice, and intelligence. ConvoMem is live; VoiceFlow is in development.'
 const OG_IMAGE = `${SITE}/og/home.png`
 
 const JSON_LD = {
@@ -30,7 +30,7 @@ const JSON_LD = {
       name: 'Optraze',
       url: SITE,
       description:
-        'The infrastructure layer for conversational and voice AI — memory, voice, and intelligence.',
+        'A product studio building the next generation of AI-native software — focused SaaS on shared foundations of memory, voice, and intelligence.',
       logo: {
         '@type': 'ImageObject',
         url: `${SITE}/icon-512.png`,
@@ -129,7 +129,7 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
       {
         property: 'og:description',
         content:
-          'The memory, voice, and intelligence layers that make AI that talks actually useful. ConvoMem is live; VoiceFlow is coming.',
+          'A studio building the next generation of AI-native software. ConvoMem is live; VoiceFlow is in development; more is on the way.',
       },
       { property: 'og:type', content: 'website' },
       { property: 'og:url', content: `${SITE}/` },
@@ -139,7 +139,7 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
       {
         property: 'og:image:alt',
         content:
-          'Optraze — indigo-to-cyan smile mark, the infrastructure layer for conversational and voice AI',
+          'Optraze — a studio building the next generation of AI-native software',
       },
       { property: 'og:site_name', content: 'Optraze' },
       { property: 'og:locale', content: 'en_US' },
@@ -149,7 +149,7 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
       {
         name: 'twitter:description',
         content:
-          'Memory, voice, and intelligence layers for AI that talks. ConvoMem live; VoiceFlow in development.',
+          'A studio building the next generation of AI-native software. ConvoMem live; VoiceFlow in development.',
       },
       { name: 'twitter:image', content: OG_IMAGE },
       { name: 'twitter:image:alt', content: 'Optraze brand mark and tagline' },

@@ -3,12 +3,11 @@ import { useEffect, useState } from 'react'
 import { Logo } from './Logo'
 import { cx, LinkButton } from './ui'
 
-const LINKS = [
-  { label: 'Platform', href: '#platform' },
-  { label: 'ConvoMem', href: '#convomem' },
-  { label: 'VoiceFlow', href: '#voiceflow' },
+const LINKS: { label: string; href: string; external?: boolean }[] = [
+  { label: 'Approach', href: '#approach' },
+  { label: 'Products', href: '#products' },
+  { label: 'Philosophy', href: '#philosophy' },
   { label: 'FAQ', href: '#faq' },
-  { label: 'Docs', href: 'https://convomem.com', external: true },
 ]
 
 export function Nav() {
@@ -70,7 +69,7 @@ export function Nav() {
               size="sm"
               magnetic
             >
-              Start free
+              Visit ConvoMem
             </LinkButton>
           </div>
 
@@ -136,7 +135,7 @@ export function Nav() {
               variant="cta"
               onClick={() => setOpen(false)}
             >
-              Start free
+              Visit ConvoMem
             </LinkButton>
           </div>
         </div>

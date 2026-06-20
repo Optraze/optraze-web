@@ -11,19 +11,19 @@ export function Philosophy() {
           <Eyebrow>Why Optraze</Eyebrow>
         </Reveal>
         <Reveal as="h2" delay={60} className="mt-5 max-w-[20ch] text-4xl">
-          We build the layer, so you can build the product.
+          We build the products, not just the parts.
         </Reveal>
         <Reveal delay={120} className="mt-8">
           <p className="font-display text-2xl font-medium leading-snug text-ink">
-            Infrastructure should be invisible and unforgiving — fast when it
-            matters, honest about what it can&apos;t do yet.
+            Plenty of companies sell the building blocks. We use ours to ship
+            products people actually open.
           </p>
           <p className="mt-6 text-lg text-ink-2">
-            Optraze is the foundational layer for conversational and voice AI:
-            the memory, the voice, the intelligence. We don&apos;t lock you to a
-            provider, we don&apos;t keep your data hostage, and we ship
-            what&apos;s ready while we tell you plainly what isn&apos;t.
-            ConvoMem is live today. VoiceFlow is next.
+            Optraze is a studio. We design, build, and run our own AI-native
+            software — each product focused, each with its own brand, each
+            standing on the same memory, voice, and intelligence foundations. We
+            ship what&apos;s ready and say plainly what isn&apos;t. ConvoMem is
+            live today. VoiceFlow is next. The build queue keeps moving.
           </p>
         </Reveal>
       </Container>

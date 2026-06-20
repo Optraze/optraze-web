@@ -105,11 +105,10 @@ const Card = (
             display: 'flex',
             width: '8px',
             height: '8px',
-            backgroundColor: '#18a558',
+            backgroundImage: `linear-gradient(135deg, ${INDIGO}, #06b6d4)`,
           }}
         />
-        <span style={{ color: '#18a558' }}>LIVE</span>
-        <span style={{ color: MUTED }}>convomem.com</span>
+        <span style={{ color: INK2 }}>Product studio</span>
       </div>
     </div>
 
@@ -148,12 +147,11 @@ const Card = (
           color: INK,
         }}
       >
-        <span>The infrastructure layer</span>
+        <span>We build the next</span>
+        <span>generation of</span>
         <span>
-          for AI that <span style={{ color: INDIGO }}>talks,</span>
-        </span>
-        <span>
-          and <span style={{ color: CYAN }}>remembers.</span>
+          <span style={{ color: INDIGO }}>AI-native</span>{' '}
+          <span style={{ color: CYAN }}>software.</span>
         </span>
       </div>
     </div>
