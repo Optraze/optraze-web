@@ -10,6 +10,34 @@ function IconWrap({ children }: { children: ReactNode }) {
   )
 }
 
+function RealtimeMark() {
+  return (
+    <IconWrap>
+      <svg
+        width="22"
+        height="22"
+        viewBox="0 0 24 24"
+        fill="none"
+        aria-hidden="true"
+      >
+        <title>Realtime</title>
+        <path
+          d="M3 12h2.2M8 6v12M12 3v18M16 8v8M20 11h1"
+          stroke="url(#mk-rt)"
+          strokeWidth="1.6"
+          strokeLinecap="round"
+        />
+        <defs>
+          <linearGradient id="mk-rt" x1="3" y1="4" x2="21" y2="20">
+            <stop stopColor="#4f46e5" />
+            <stop offset="1" stopColor="#06b6d4" />
+          </linearGradient>
+        </defs>
+      </svg>
+    </IconWrap>
+  )
+}
+
 function MemoryMark() {
   return (
     <IconWrap>
@@ -39,7 +67,7 @@ function MemoryMark() {
   )
 }
 
-function VoiceMark() {
+function ShieldMark() {
   return (
     <IconWrap>
       <svg
@@ -49,59 +77,22 @@ function VoiceMark() {
         fill="none"
         aria-hidden="true"
       >
-        <title>Voice</title>
+        <title>Private</title>
         <path
-          d="M3 12h2.2M8 7v10M12 3.5v17M16 8v8M20 11h1"
-          stroke="url(#mk-voice)"
-          strokeWidth="1.6"
-          strokeLinecap="round"
+          d="M12 3 5 5.6v5.2c0 4.1 3 6.8 7 8.2 4-1.4 7-4.1 7-8.2V5.6L12 3Z"
+          stroke="url(#mk-pv)"
+          strokeWidth="1.5"
+          strokeLinejoin="round"
         />
-        <defs>
-          <linearGradient id="mk-voice" x1="3" y1="4" x2="21" y2="20">
-            <stop stopColor="#4f46e5" />
-            <stop offset="1" stopColor="#06b6d4" />
-          </linearGradient>
-        </defs>
-      </svg>
-    </IconWrap>
-  )
-}
-
-function IntelMark() {
-  return (
-    <IconWrap>
-      <svg
-        width="22"
-        height="22"
-        viewBox="0 0 24 24"
-        fill="none"
-        aria-hidden="true"
-      >
-        <title>Intelligence</title>
         <path
-          d="m7 8 5 3 5-4M7 8l5 9 5-9"
-          stroke="url(#mk-int)"
+          d="m9 11.6 2 2 4-4.2"
+          stroke="url(#mk-pv)"
           strokeWidth="1.5"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
-        <circle cx="7" cy="8" r="2.2" stroke="url(#mk-int)" strokeWidth="1.5" />
-        <circle
-          cx="17"
-          cy="7"
-          r="2.2"
-          stroke="url(#mk-int)"
-          strokeWidth="1.5"
-        />
-        <circle
-          cx="12"
-          cy="18.5"
-          r="2.2"
-          stroke="url(#mk-int)"
-          strokeWidth="1.5"
-        />
         <defs>
-          <linearGradient id="mk-int" x1="5" y1="5" x2="19" y2="20">
+          <linearGradient id="mk-pv" x1="5" y1="3" x2="19" y2="20">
             <stop stopColor="#4f46e5" />
             <stop offset="1" stopColor="#06b6d4" />
           </linearGradient>
@@ -153,39 +144,37 @@ export function Platform() {
             <Eyebrow>How we build</Eyebrow>
           </Reveal>
           <Reveal as="h2" delay={60} className="max-w-[22ch] text-4xl">
-            Every product we ship stands on the same foundations.
+            Every product inherits the same hard-won edges.
           </Reveal>
           <Reveal
             as="p"
             delay={120}
-            className="max-w-[52ch] text-lg text-ink-2"
+            className="max-w-[54ch] text-lg text-ink-2"
           >
-            Memory, voice, and intelligence are hard to build once — so we build
-            them once, and reuse them across every product. New ideas ship
-            faster because the hard parts already exist.
+            The difficult, expensive parts of AI-native software get built once
+            and reused across everything we ship. Each new product starts
+            further ahead — and our current products prove the edges work.
           </Reveal>
         </div>
 
         <div className="mt-12 grid border border-line bg-line gap-px shadow-soft md:grid-cols-3">
           <Tile
-            className="md:col-span-2"
-            mark={<MemoryMark />}
-            title="Memory"
-            body="Durable, searchable customer memory that survives every session. Facts get captured automatically; one person stays one profile across voice, chat, SMS, and email."
-            tag="Powers ConvoMem"
+            mark={<RealtimeMark />}
+            title="Realtime by default"
+            body="Streaming, sub-second systems — products that respond the instant they’re spoken or typed to, not seconds later."
+            tag="Proven in VoiceFlow"
           />
           <Tile
-            mark={<VoiceMark />}
-            title="Voice"
-            body="Realtime voice orchestration with sub-second latency, interruption handling, and bring-your-own STT / TTS / LLM."
-            tag="Powers VoiceFlow"
+            mark={<MemoryMark />}
+            title="Durable memory & state"
+            body="Context that persists across sessions, channels, and time — so nothing useful is ever reset to zero."
+            tag="Proven in ConvoMem"
             delay={80}
           />
           <Tile
-            className="md:col-span-3"
-            mark={<IntelMark />}
-            title="Intelligence"
-            body="Sentiment, buying intent, churn risk, and a knowledge graph that connects everything a customer has ever told you."
+            mark={<ShieldMark />}
+            title="Private & portable"
+            body="Encryption, redaction, and zero vendor lock-in by default. Your data stays yours — and stays leaveable."
             tag="In every product"
             delay={120}
           />

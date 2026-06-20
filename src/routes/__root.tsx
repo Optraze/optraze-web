@@ -18,7 +18,7 @@ interface MyRouterContext {
 const SITE = 'https://optraze.com'
 const TITLE = 'Optraze — AI-Native Software Studio'
 const DESCRIPTION =
-  'Optraze is a product studio building the next generation of AI-native SaaS — focused products on shared foundations of memory, voice, and intelligence. ConvoMem is live; VoiceFlow is in development.'
+  'Optraze is a product studio building the next generation of AI-native SaaS — focused products, shipped fast and built to compound. ConvoMem is live; VoiceFlow is in development.'
 const OG_IMAGE = `${SITE}/og/home.png`
 
 const JSON_LD = {
@@ -30,7 +30,7 @@ const JSON_LD = {
       name: 'Optraze',
       url: SITE,
       description:
-        'A product studio building the next generation of AI-native software — focused SaaS on shared foundations of memory, voice, and intelligence.',
+        'A product studio building the next generation of AI-native software — focused, AI-native SaaS shipped fast and built to compound.',
       logo: {
         '@type': 'ImageObject',
         url: `${SITE}/icon-512.png`,

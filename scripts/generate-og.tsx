@@ -124,7 +124,7 @@ const Card = (
           marginBottom: '22px',
         }}
       >
-        memory · voice · intelligence
+        shipped fast · built to compound
       </span>
       <div
         style={{

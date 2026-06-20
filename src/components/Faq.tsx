@@ -9,7 +9,7 @@ import {
 const QA = [
   {
     q: 'What is Optraze?',
-    a: 'Optraze is a product studio. We design, build, and run our own AI-native SaaS — focused products built on shared foundations of memory, voice, and intelligence.',
+    a: 'Optraze is a product studio. We design, build, and run our own AI-native SaaS — focused products, shipped fast, each one sharper than the last.',
   },
   {
     q: 'What have you shipped so far?',
@@ -25,7 +25,7 @@ const QA = [
   },
   {
     q: 'What ties the products together?',
-    a: 'The same foundations underneath all of them — memory, voice, and intelligence. Building those once means every new product ships faster and works better than starting from scratch.',
+    a: 'The same hard-won edges underneath all of them — realtime systems, durable memory, and data you actually own. Building those once means every new product ships faster and starts better than from scratch.',
   },
 ]
 

@@ -9,7 +9,7 @@ const STEPS = [
   {
     n: '02',
     title: 'Build on foundations.',
-    desc: 'Reuse memory, voice, and intelligence instead of rebuilding them.',
+    desc: 'Reuse the hard-won edges — realtime, memory, privacy — instead of starting over.',
   },
   {
     n: '03',

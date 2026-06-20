@@ -50,11 +50,9 @@ export function Hero() {
             style={fade(680)}
           >
             Optraze is a studio building focused SaaS for a world where software
-            is expected to think — products with{' '}
-            <span className="font-medium text-ink">
-              memory, voice, and intelligence
-            </span>{' '}
-            built in. ConvoMem is live. VoiceFlow is next. More is on the way.
+            is expected to think — shipped fast, each product{' '}
+            <span className="font-medium text-ink">sharper than the last</span>.
+            ConvoMem is live. VoiceFlow is next. More is on the way.
           </p>
 
           <div

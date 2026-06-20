@@ -21,7 +21,7 @@ export function Philosophy() {
           <p className="mt-6 text-lg text-ink-2">
             Optraze is a studio. We design, build, and run our own AI-native
             software — each product focused, each with its own brand, each
-            standing on the same memory, voice, and intelligence foundations. We
+            inheriting the same hard-won edges so it starts further ahead. We
             ship what&apos;s ready and say plainly what isn&apos;t. ConvoMem is
             live today. VoiceFlow is next. The build queue keeps moving.
           </p>
