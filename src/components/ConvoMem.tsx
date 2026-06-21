@@ -1,6 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
-
-import { ArrowRight, Container, cx, Eyebrow, LinkButton, Reveal } from './ui'
+import { ArrowRight, Container, Eyebrow, LinkButton, Reveal } from './ui'
 import { Badge } from './ui/badge'
 
 const FEATURES = [
@@ -26,7 +24,7 @@ const FEATURES = [
   },
   {
     name: 'Plain-language analytics',
-    desc: 'Ask in English, get answers about your customers.',
+    desc: 'Ask in plain language, get answers about your customers.',
   },
 ]
 
@@ -37,75 +35,6 @@ const BRIEF = [
   'Sentiment — how they feel right now',
   'Open issue — what’s still unresolved',
 ]
-
-type Stat = {
-  display?: string
-  to?: number
-  prefix?: string
-  suffix?: string
-  label: string
-}
-
-const STATS: Stat[] = [
-  { display: '∞', label: 'memory / customer' },
-  { to: 20, prefix: '<', suffix: 'ms', label: 'recall · p95' },
-  { to: 4, label: 'channels unified' },
-  { to: 0, label: 'vendor lock-in' },
-]
-
-function CountUp({
-  to,
-  prefix = '',
-  suffix = '',
-}: {
-  to: number
-  prefix?: string
-  suffix?: string
-}) {
-  const ref = useRef<HTMLSpanElement>(null)
-  const [n, setN] = useState(0)
-
-  useEffect(() => {
-    const el = ref.current
-    if (!el) return
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      setN(to)
-      return
-    }
-    let raf = 0
-    const run = () => {
-      const start = performance.now()
-      const step = (now: number) => {
-        const p = Math.min((now - start) / 1100, 1)
-        setN(Math.round(to * (1 - (1 - p) ** 3)))
-        if (p < 1) raf = requestAnimationFrame(step)
-      }
-      raf = requestAnimationFrame(step)
-    }
-    const io = new IntersectionObserver(
-      (entries) => {
-        if (entries[0]?.isIntersecting) {
-          run()
-          io.disconnect()
-        }
-      },
-      { threshold: 0.4 }
-    )
-    io.observe(el)
-    return () => {
-      io.disconnect()
-      cancelAnimationFrame(raf)
-    }
-  }, [to])
-
-  return (
-    <span ref={ref}>
-      {prefix}
-      {n}
-      {suffix}
-    </span>
-  )
-}
 
 export function ConvoMem() {
   return (
@@ -152,13 +81,13 @@ export function ConvoMem() {
               delay={60}
               className="mt-6 max-w-[16ch] font-display text-[clamp(2rem,1.2rem+2.4vw,3.4rem)] font-semibold leading-[1.02] tracking-tight text-ink"
             >
-              A memory that outlasts the call.
+              A memory that outlasts the conversation.
             </Reveal>
           </div>
           <Reveal as="p" delay={120} className="text-lg text-ink-2">
             ConvoMem is the memory layer for conversational AI — the next
             interaction starts with context, not repetition, across voice, chat,
-            SMS, and email. It&apos;s live today and runs in production.
+            SMS, and email. It runs in production today.
           </Reveal>
         </div>
 
@@ -223,32 +152,7 @@ export function ConvoMem() {
           </Reveal>
         </div>
 
-        {/* proof stats — inline, hairline-divided */}
-        <div className="mt-20 flex flex-wrap gap-y-8 border-t border-line pt-12">
-          {STATS.map((s, i) => (
-            <Reveal
-              key={s.label}
-              delay={i * 70}
-              className={cx(
-                'flex min-w-[8rem] flex-col gap-1.5 pr-10 sm:pl-10',
-                i > 0 && 'sm:border-l sm:border-line'
-              )}
-            >
-              <span className="font-display text-[clamp(2.25rem,1.6rem+2vw,3.25rem)] font-semibold tracking-tight text-ink tabular-nums">
-                {typeof s.to === 'number' ? (
-                  <CountUp to={s.to} prefix={s.prefix} suffix={s.suffix} />
-                ) : (
-                  s.display
-                )}
-              </span>
-              <span className="font-mono text-xs uppercase tracking-[0.16em] text-ink-3">
-                {s.label}
-              </span>
-            </Reveal>
-          ))}
-        </div>
-
-        <Reveal className="mt-14 flex flex-wrap items-center gap-3">
+        <Reveal className="mt-20 flex flex-wrap items-center gap-3 border-t border-line pt-12">
           <LinkButton
             href="https://convomem.com"
             external

@@ -21,7 +21,11 @@ const COLUMNS = [
     title: 'Resources',
     links: [
       { label: 'FAQ', href: '#faq' },
-      { label: 'ConvoMem docs', href: 'https://convomem.com', external: true },
+      {
+        label: 'ConvoMem docs',
+        href: 'https://convomem.com/docs',
+        external: true,
+      },
     ],
   },
 ]
@@ -52,7 +56,7 @@ export function Footer() {
           <div className="max-w-xs">
             <Logo />
             <p className="mt-4 text-sm text-ink-2">
-              A studio building the next generation of AI-native software.
+              An independent studio shipping AI-native products, one at a time.
             </p>
           </div>
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-3">

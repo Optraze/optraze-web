@@ -8,7 +8,7 @@ const CAPABILITIES = [
   },
   {
     name: 'Bring your own provider',
-    desc: 'Deepgram, OpenAI, Anthropic, Gemini, Groq, ElevenLabs, Azure, Cartesia for STT / TTS / LLM / S2S.',
+    desc: 'Mix and match best-in-class engines for speech-to-text, text-to-speech, LLM, and speech-to-speech.',
   },
   {
     name: 'Inbound + outbound calling',
@@ -66,8 +66,8 @@ export function VoiceFlow() {
             </Reveal>
           </div>
           <Reveal as="p" delay={120} className="text-lg text-ink-2">
-            VoiceFlow is the voice-AI platform we&apos;re building on the
-            Optraze stack — to design, deploy, and scale realtime voice agents
+            VoiceFlow is the voice-AI platform we&apos;re building on our own
+            realtime foundation — to design, deploy, and scale voice agents
             without stitching the infrastructure together yourself.
           </Reveal>
         </div>
@@ -121,13 +121,7 @@ export function VoiceFlow() {
             size="lg"
             magnetic
           >
-            Get early access
-          </LinkButton>
-          <LinkButton
-            href="mailto:hello@optraze.com?subject=VoiceFlow%20waitlist"
-            variant="link"
-          >
-            Join the waitlist <ArrowRight />
+            Get early access <ArrowRight />
           </LinkButton>
         </Reveal>
       </Container>

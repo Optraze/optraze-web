@@ -8,8 +8,8 @@ const STEPS = [
   },
   {
     n: '02',
-    title: 'Build on foundations.',
-    desc: 'Reuse the hard-won edges — realtime, memory, privacy — instead of starting over.',
+    title: 'Build on what’s proven.',
+    desc: 'Start from the systems earlier products already battle-tested, not a blank repo.',
   },
   {
     n: '03',

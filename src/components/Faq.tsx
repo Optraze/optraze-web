@@ -9,7 +9,7 @@ import {
 const QA = [
   {
     q: 'What is Optraze?',
-    a: 'Optraze is a product studio. We design, build, and run our own AI-native SaaS — focused products, shipped fast, each one sharper than the last.',
+    a: 'Optraze is a product studio. We design, build, and run our own AI-native SaaS — focused products, shipped one at a time.',
   },
   {
     q: 'What have you shipped so far?',
@@ -43,14 +43,21 @@ export function Faq() {
             </Reveal>
           </div>
 
-          <Reveal delay={80} className="border border-line bg-card shadow-soft">
-            <Accordion className="px-6">
-              {QA.map((item) => (
-                <AccordionItem key={item.q} value={item.q}>
-                  <AccordionTrigger className="py-5 font-display text-lg text-ink hover:no-underline">
-                    {item.q}
+          <Reveal delay={80} className="w-full">
+            <Accordion className="border-t border-line">
+              {QA.map((item, idx) => (
+                <AccordionItem
+                  key={item.q}
+                  value={item.q}
+                  className="border-b border-line"
+                >
+                  <AccordionTrigger className="py-5 font-display text-lg text-ink hover:no-underline flex gap-6 items-center">
+                    <span className="font-mono text-xs text-ink-3 uppercase tracking-wider shrink-0 select-none">
+                      [0{idx + 1}]
+                    </span>
+                    <span className="flex-1 text-left">{item.q}</span>
                   </AccordionTrigger>
-                  <AccordionContent className="max-w-[62ch] text-base text-ink-2">
+                  <AccordionContent className="max-w-[62ch] text-base text-ink-2 pl-[3.5rem] pb-5">
                     {item.a}
                   </AccordionContent>
                 </AccordionItem>
