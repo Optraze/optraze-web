@@ -42,10 +42,7 @@ export function VoiceFlow() {
       className="section scroll-mt-20 border-b border-line"
     >
       <Container>
-        <div
-          className="grid gap-x-16 gap-y-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end"
-          data-cursor-label="VoiceFlow"
-        >
+        <div className="grid gap-x-16 gap-y-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
           <div>
             <Reveal className="flex flex-wrap items-center gap-4">
               <span className="font-mono text-sm text-ink-3">02</span>

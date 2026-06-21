@@ -133,10 +133,7 @@ export function ConvoMem() {
         </div>
 
         {/* ConvoMem — Product 01, editorial */}
-        <div
-          className="mt-20 grid gap-x-16 gap-y-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end"
-          data-cursor-label="ConvoMem"
-        >
+        <div className="mt-20 grid gap-x-16 gap-y-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
           <div>
             <Reveal className="flex items-center gap-4">
               <span className="font-mono text-sm text-ink-3">01</span>

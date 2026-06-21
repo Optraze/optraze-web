@@ -4,14 +4,14 @@ const INTERACTIVE =
   'a, button, [role="button"], label, summary, input, select, textarea'
 
 /**
- * Custom cursor with a lagging outline ring that grows over interactive elements
- * and morphs into a descriptive text badge when hovering over key portfolio elements.
+ * Square, on-brand custom cursor: an exact indigo dot + a lagging outline ring
+ * that grows over interactive elements. Desktop/fine-pointer only; disabled
+ * under reduced-motion and on touch (native cursor stays).
  */
 export function CursorFollower() {
   const dotRef = useRef<HTMLDivElement>(null)
   const ringRef = useRef<HTMLDivElement>(null)
   const [active, setActive] = useState(false)
-  const [hoverLabel, setHoverLabel] = useState('')
 
   useEffect(() => {
     const fine = window.matchMedia('(pointer: fine)').matches
@@ -46,25 +46,13 @@ export function CursorFollower() {
     }
     const onOver = (e: PointerEvent) => {
       const el = e.target as Element | null
-      const interactiveEl = el?.closest?.(INTERACTIVE)
-      ring.classList.toggle('is-hovering', !!interactiveEl)
-
-      const labelEl = el?.closest?.('[data-cursor-label]') as HTMLElement | null
-      if (labelEl) {
-        setHoverLabel(labelEl.getAttribute('data-cursor-label') || '')
-        ring.classList.add('has-label')
-      } else {
-        setHoverLabel('')
-        ring.classList.remove('has-label')
-      }
+      ring.classList.toggle('is-hovering', !!el?.closest?.(INTERACTIVE))
     }
     const onOut = (e: PointerEvent) => {
       if (e.relatedTarget) return
       shown = false
       dot.style.opacity = '0'
       ring.style.opacity = '0'
-      setHoverLabel('')
-      ring.classList.remove('has-label')
     }
     const loop = () => {
       rx += (mx - rx) * 0.18
@@ -92,17 +80,7 @@ export function CursorFollower() {
   return (
     <>
       <div ref={dotRef} className="cursor-dot" aria-hidden="true" />
-      <div
-        ref={ringRef}
-        className="cursor-ring flex items-center justify-center text-center font-mono text-[7px] font-bold uppercase tracking-[0.14em] text-indigo"
-        aria-hidden="true"
-      >
-        {hoverLabel && (
-          <span className="opacity-100 transition-opacity duration-150">
-            {hoverLabel}
-          </span>
-        )}
-      </div>
+      <div ref={ringRef} className="cursor-ring" aria-hidden="true" />
     </>
   )
 }
