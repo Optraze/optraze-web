@@ -469,6 +469,21 @@
     transform: none;
   }
 }
+@keyframes aurora {
+  0% {
+    transform: translate3d(-5%, -3%, 0) scale(1.1) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(6%, 4%, 0) scale(1.35) rotate(10deg);
+  }
+  100% {
+    transform: translate3d(-5%, -3%, 0) scale(1.1) rotate(0deg);
+  }
+}
+.aurora {
+  animation: aurora 20s var(--ease-neutral) infinite;
+  will-change: transform;
+}
 
 /* ============================================================
    CUSTOM CURSOR (square, on-brand — desktop/fine-pointer only)

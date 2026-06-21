@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 
-import { ArrowRight, Check, Container, Eyebrow, LinkButton, Reveal } from './ui'
+import { ArrowRight, Container, cx, Eyebrow, LinkButton, Reveal } from './ui'
 import { Badge } from './ui/badge'
 
 const FEATURES = [
@@ -28,6 +28,14 @@ const FEATURES = [
     name: 'Plain-language analytics',
     desc: 'Ask in English, get answers about your customers.',
   },
+]
+
+const BRIEF = [
+  'Who they are — resolved across channels',
+  'The journey — every touch, in order',
+  'Key facts — extracted, not retyped',
+  'Sentiment — how they feel right now',
+  'Open issue — what’s still unresolved',
 ]
 
 type Stat = {
@@ -106,7 +114,8 @@ export function ConvoMem() {
       className="section scroll-mt-20 border-b border-line"
     >
       <Container>
-        <div className="mb-14 flex flex-col gap-5">
+        {/* products intro */}
+        <div className="flex flex-col gap-5">
           <Reveal>
             <Eyebrow>Our products</Eyebrow>
           </Reveal>
@@ -118,106 +127,114 @@ export function ConvoMem() {
             delay={120}
             className="max-w-[54ch] text-lg text-ink-2"
           >
-            Each one is its own product with its own home. Optraze designs,
-            builds, and runs them.
+            Each one is its own product with its own home, brand, and roadmap —
+            all built and run under one roof.
           </Reveal>
         </div>
 
-        <Reveal className="mb-6">
-          <Badge
-            variant="outline"
-            className="h-auto gap-2 px-3 py-1.5 font-mono text-[0.7rem] uppercase tracking-[0.14em]"
-          >
-            <span className="live-dot" />
-            <span className="text-live">Live</span>
-            <span className="text-ink-3">·</span>
-            <span className="text-ink-2">convomem.com</span>
-          </Badge>
-        </Reveal>
-
-        <div className="grid gap-x-12 gap-y-6 lg:grid-cols-[1fr_auto] lg:items-end">
+        {/* ConvoMem — Product 01, editorial */}
+        <div className="mt-20 grid gap-x-16 gap-y-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
           <div>
-            <Reveal>
-              <Eyebrow>Product 01 · ConvoMem</Eyebrow>
+            <Reveal className="flex items-center gap-4">
+              <span className="font-mono text-sm text-ink-3">01</span>
+              <Badge
+                variant="outline"
+                className="h-auto gap-2 px-3 py-1.5 font-mono text-[0.7rem] uppercase tracking-[0.14em]"
+              >
+                <span className="live-dot" />
+                <span className="text-live">Live</span>
+                <span className="text-ink-3">·</span>
+                <span className="text-ink-2">convomem.com</span>
+              </Badge>
             </Reveal>
-            <Reveal as="h2" delay={60} className="mt-5 max-w-[20ch] text-4xl">
-              Give your agents a memory that outlasts the call.
+            <Reveal
+              as="h3"
+              delay={60}
+              className="mt-6 max-w-[16ch] font-display text-[clamp(2rem,1.2rem+2.4vw,3.4rem)] font-semibold leading-[1.02] tracking-tight text-ink"
+            >
+              A memory that outlasts the call.
             </Reveal>
           </div>
-          <Reveal
-            as="p"
-            delay={120}
-            className="max-w-[42ch] text-lg text-ink-2"
-          >
-            ConvoMem is the memory layer for conversational AI. The next
-            interaction starts with context, not repetition — across voice,
-            chat, SMS, and email.
+          <Reveal as="p" delay={120} className="text-lg text-ink-2">
+            ConvoMem is the memory layer for conversational AI — the next
+            interaction starts with context, not repetition, across voice, chat,
+            SMS, and email. It&apos;s live today and runs in production.
           </Reveal>
         </div>
 
-        {/* features as a crisp bordered grid */}
-        <div className="mt-12 grid border border-line bg-line gap-px shadow-soft sm:grid-cols-2 lg:grid-cols-3">
+        {/* feature spec list — hairline rows, no boxes */}
+        <div className="mt-12 grid gap-x-16 md:grid-cols-2">
           {FEATURES.map((f, i) => (
             <Reveal
               key={f.name}
-              delay={i * 40}
-              className="flex gap-3.5 bg-card p-7"
+              delay={(i % 2) * 60}
+              className="flex items-baseline gap-5 border-t border-line py-6"
             >
-              <Check className="mt-1 shrink-0" />
+              <span className="font-mono text-xs text-ink-3 tabular-nums">
+                {String(i + 1).padStart(2, '0')}
+              </span>
               <div>
-                <h3 className="font-display text-lg text-ink">{f.name}</h3>
+                <h4 className="font-display text-lg text-ink">{f.name}</h4>
                 <p className="mt-1.5 text-base text-ink-2">{f.desc}</p>
               </div>
             </Reveal>
           ))}
         </div>
 
-        {/* agent handoff — flagship */}
-        <Reveal className="mt-4 grid items-start gap-x-10 gap-y-8 border border-line bg-card p-8 shadow-soft md:grid-cols-[1.1fr_0.9fr] md:p-10">
+        {/* agent handoff — editorial */}
+        <div className="mt-20 grid gap-x-16 gap-y-10 border-t border-line pt-14 lg:grid-cols-[1.05fr_0.95fr]">
           <div>
-            <Eyebrow>Agent handoff</Eyebrow>
-            <h3 className="mt-4 max-w-[20ch] text-2xl text-ink">
-              When the bot taps out, your team doesn’t start from scratch.
-            </h3>
-            <p className="mt-3 max-w-[46ch] text-base text-ink-2">
+            <Reveal>
+              <Eyebrow>Agent handoff</Eyebrow>
+            </Reveal>
+            <Reveal
+              as="h3"
+              delay={60}
+              className="mt-5 max-w-[18ch] font-display text-3xl font-semibold leading-[1.05] tracking-tight text-ink"
+            >
+              When the bot taps out, your team doesn&apos;t start from scratch.
+            </Reveal>
+            <Reveal
+              as="p"
+              delay={120}
+              className="mt-5 max-w-[46ch] text-lg text-ink-2"
+            >
               Escalate to a human and ConvoMem hands them a brief, not a blank
-              screen — so they pick up exactly where the conversation broke
-              down, and the customer never repeats themselves. Drop it into your
-              help desk as an embed, with scoped read or write access.
-            </p>
+              screen — they pick up exactly where the conversation broke down,
+              and the customer never repeats themselves. Drop it into your help
+              desk as an embed, with scoped read or write access.
+            </Reveal>
           </div>
-          <div className="border border-line bg-paper p-6">
-            <span className="font-mono text-[0.7rem] uppercase tracking-[0.16em] text-ink-3">
+          <Reveal delay={120}>
+            <span className="font-mono text-xs uppercase tracking-[0.18em] text-ink-3">
               In the handoff brief
             </span>
-            <ul className="mt-4 flex flex-col gap-3">
-              {[
-                'Who they are — resolved across channels',
-                'The journey — every touch, in order',
-                'Key facts — extracted, not retyped',
-                'Sentiment — how they feel right now',
-                'Open issue — what’s still unresolved',
-              ].map((item) => (
+            <ul className="mt-2">
+              {BRIEF.map((item) => (
                 <li
                   key={item}
-                  className="flex items-start gap-3 text-sm text-ink-2"
+                  className="flex items-baseline gap-3 border-t border-line py-4 text-base text-ink-2"
                 >
-                  <Check className="mt-0.5 shrink-0" />
+                  <span className="mt-1 h-1.5 w-1.5 shrink-0 bg-[linear-gradient(135deg,#4f46e5,#06b6d4)]" />
                   {item}
                 </li>
               ))}
             </ul>
-          </div>
-        </Reveal>
+          </Reveal>
+        </div>
 
-        {/* proof stats */}
-        <div className="mt-4 grid grid-cols-2 border border-line bg-line gap-px shadow-soft md:grid-cols-4">
-          {STATS.map((s) => (
-            <div
+        {/* proof stats — inline, hairline-divided */}
+        <div className="mt-20 flex flex-wrap gap-y-8 border-t border-line pt-12">
+          {STATS.map((s, i) => (
+            <Reveal
               key={s.label}
-              className="flex flex-col gap-2 bg-card px-4 py-10 md:px-7"
+              delay={i * 70}
+              className={cx(
+                'flex min-w-[8rem] flex-col gap-1.5 pr-10 sm:pl-10',
+                i > 0 && 'sm:border-l sm:border-line'
+              )}
             >
-              <span className="font-display text-4xl font-semibold tracking-tight text-ink tabular-nums">
+              <span className="font-display text-[clamp(2.25rem,1.6rem+2vw,3.25rem)] font-semibold tracking-tight text-ink tabular-nums">
                 {typeof s.to === 'number' ? (
                   <CountUp to={s.to} prefix={s.prefix} suffix={s.suffix} />
                 ) : (
@@ -227,11 +244,11 @@ export function ConvoMem() {
               <span className="font-mono text-xs uppercase tracking-[0.16em] text-ink-3">
                 {s.label}
               </span>
-            </div>
+            </Reveal>
           ))}
         </div>
 
-        <Reveal className="mt-12 flex flex-wrap items-center gap-3">
+        <Reveal className="mt-14 flex flex-wrap items-center gap-3">
           <LinkButton
             href="https://convomem.com"
             external

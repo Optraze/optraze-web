@@ -16,14 +16,12 @@ export function Philosophy() {
         <Reveal delay={120} className="mt-8">
           <p className="font-display text-2xl font-medium leading-snug text-ink">
             Plenty of companies sell the building blocks. We use ours to ship
-            products people actually open.
+            products people actually rely on.
           </p>
           <p className="mt-6 text-lg text-ink-2">
-            Optraze is a studio. We design, build, and run our own AI-native
-            software — each product focused, each with its own brand, each
-            inheriting the same hard-won edges so it starts further ahead. We
-            ship what&apos;s ready and say plainly what isn&apos;t. ConvoMem is
-            live today. VoiceFlow is next. The build queue keeps moving.
+            Optraze is a studio, and we own what we build — each product focused,
+            each with its own brand, each carrying forward what the last one
+            proved. We ship what&apos;s ready and say plainly what isn&apos;t.
           </p>
         </Reveal>
       </Container>

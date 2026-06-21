@@ -83,7 +83,7 @@ export function Footer() {
 
         <div className="mt-14 flex flex-col items-center justify-between gap-5 border-t border-line pt-7 sm:flex-row">
           <p className="font-mono text-xs uppercase tracking-[0.14em] text-ink-3">
-            © 2026 Optraze · Built for AI that talks
+            © 2026 Optraze · Built for a world where software thinks
           </p>
           <div className="flex items-center gap-1">
             {SOCIALS.map((s) => (

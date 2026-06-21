@@ -1,4 +1,5 @@
-import { createElement, useEffect, useId, useRef } from 'react'
+import { useEffect, useId, useRef } from 'react'
+import { motion, useReducedMotion } from 'motion/react'
 
 import type { CSSProperties, ElementType, ReactNode } from 'react'
 
@@ -44,11 +45,13 @@ export function Eyebrow({
 }
 
 /* ------------------------------------------------------------------- Reveal */
+const REVEAL_EASE = [0.22, 1, 0.36, 1] as const
+
 export function Reveal({
   children,
   className,
   delay = 0,
-  as: Tag = 'div',
+  as = 'div',
   id,
 }: {
   children: ReactNode
@@ -57,39 +60,30 @@ export function Reveal({
   as?: ElementType
   id?: string
 }) {
-  const ref = useRef<HTMLElement>(null)
+  const reduce = useReducedMotion()
+  // biome-ignore lint/suspicious/noExplicitAny: motion's dynamic tag index
+  const MTag = ((motion as any)[as as string] ??
+    motion.div) as typeof motion.div
 
-  useEffect(() => {
-    const el = ref.current
-    if (!el) return
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      el.classList.add('is-visible')
-      return
-    }
-    const io = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            el.classList.add('is-visible')
-            io.unobserve(el)
-          }
-        }
-      },
-      { threshold: 0.12, rootMargin: '0px 0px -8% 0px' }
+  if (reduce) {
+    return (
+      <MTag id={id} className={className}>
+        {children}
+      </MTag>
     )
-    io.observe(el)
-    return () => io.disconnect()
-  }, [])
+  }
 
-  return createElement(
-    Tag,
-    {
-      ref,
-      id,
-      className: cx('reveal', className),
-      style: cssVars({ '--delay': `${delay}ms` }),
-    } as Record<string, unknown>,
-    children
+  return (
+    <MTag
+      id={id}
+      className={className}
+      initial={{ opacity: 0, y: 26 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '0px 0px -12% 0px' }}
+      transition={{ duration: 0.62, ease: REVEAL_EASE, delay: delay / 1000 }}
+    >
+      {children}
+    </MTag>
   )
 }
 

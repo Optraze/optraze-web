@@ -15,8 +15,7 @@ export function Problem() {
           product can remember, understand, and respond on its own. Most teams
           bolt AI onto what already exists. We start from the other end —
           building focused products that are AI-native from the first line, on
-          foundations we don&apos;t have to reinvent each time. That&apos;s the
-          company: Optraze ships those products.
+          foundations we don&apos;t have to reinvent each time.
         </Reveal>
         <Reveal delay={160} className="mt-12 border-l-2 border-ink pl-6">
           <blockquote className="font-display text-2xl font-medium leading-snug text-ink md:text-3xl">
