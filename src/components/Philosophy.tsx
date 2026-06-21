@@ -19,9 +19,10 @@ export function Philosophy() {
             products people actually rely on.
           </p>
           <p className="mt-6 text-lg text-ink-2">
-            Optraze is a studio, and we own what we build — each product focused,
-            each with its own brand, each carrying forward what the last one
-            proved. We ship what&apos;s ready and say plainly what isn&apos;t.
+            Optraze is a studio, and we own what we build — each product
+            focused, each with its own brand, each carrying forward what the
+            last one proved. We ship what&apos;s ready and say plainly what
+            isn&apos;t.
           </p>
         </Reveal>
       </Container>

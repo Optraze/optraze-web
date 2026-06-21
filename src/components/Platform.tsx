@@ -127,7 +127,7 @@ export function Platform() {
       <Container>
         <div className="flex max-w-[40ch] flex-col gap-5">
           <Reveal>
-            <Eyebrow>The foundation</Eyebrow>
+            <Eyebrow>How we build</Eyebrow>
           </Reveal>
           <Reveal as="h2" delay={60} className="text-4xl">
             Every product inherits the same hard-won edges.
@@ -161,6 +161,51 @@ export function Platform() {
               </span>
             </Reveal>
           ))}
+        </div>
+
+        {/* studio velocity metrics */}
+        <div className="mt-20 border-t border-line pt-12">
+          <Reveal>
+            <Eyebrow>Studio Velocity</Eyebrow>
+          </Reveal>
+          <div className="mt-8 grid gap-x-12 gap-y-8 sm:grid-cols-3">
+            <Reveal className="flex flex-col gap-2">
+              <span className="font-display text-4xl font-semibold tracking-tight text-ink">
+                70%
+              </span>
+              <h4 className="font-mono text-[0.7rem] uppercase tracking-wider text-ink-3">
+                Shared codebase leverage
+              </h4>
+              <p className="text-sm text-ink-2">
+                Every new portfolio product inherits pre-tested realtime,
+                memory, and privacy engines.
+              </p>
+            </Reveal>
+            <Reveal delay={60} className="flex flex-col gap-2">
+              <span className="font-display text-4xl font-semibold tracking-tight text-ink">
+                110 Days
+              </span>
+              <h4 className="font-mono text-[0.7rem] uppercase tracking-wider text-ink-3">
+                Validation to Launch
+              </h4>
+              <p className="text-sm text-ink-2">
+                Our focused studio model takes a validated market gap to a fully
+                branded live SaaS in under 4 months.
+              </p>
+            </Reveal>
+            <Reveal delay={120} className="flex flex-col gap-2">
+              <span className="font-display text-4xl font-semibold tracking-tight text-ink">
+                2 Active
+              </span>
+              <h4 className="font-mono text-[0.7rem] uppercase tracking-wider text-ink-3">
+                Incubated Products
+              </h4>
+              <p className="text-sm text-ink-2">
+                One live in production (ConvoMem) and one in active development
+                (VoiceFlow).
+              </p>
+            </Reveal>
+          </div>
         </div>
       </Container>
     </section>

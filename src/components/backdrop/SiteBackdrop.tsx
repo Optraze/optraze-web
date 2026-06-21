@@ -1,6 +1,6 @@
 import { lazy, Suspense, useEffect, useState } from 'react'
 
-const ContourCanvas = lazy(() => import('./ContourCanvas'))
+const ParticleCanvas = lazy(() => import('./ParticleCanvas'))
 
 function hasWebGL(): boolean {
   try {
@@ -12,7 +12,7 @@ function hasWebGL(): boolean {
 }
 
 /**
- * Fixed, site-wide living backdrop: the contour field flows behind every
+ * Fixed, site-wide living backdrop: the particle field flows behind every
  * section. Solid cards sit on top; the texture shows in headings and gutters.
  * Client-only and lazy (three.js never hits the server). Mobile + reduced-motion
  * fall back to a static CSS wash; the loop pauses while the tab is hidden.
@@ -40,11 +40,7 @@ export function SiteBackdrop() {
       <div className="hero-fallback absolute inset-0" />
       {canvasOn ? (
         <Suspense fallback={null}>
-          <ContourCanvas
-            paused={paused}
-            strengthHero={0.5}
-            strengthRest={0.12}
-          />
+          <ParticleCanvas paused={paused} />
         </Suspense>
       ) : null}
     </div>

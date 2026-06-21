@@ -536,6 +536,15 @@
   border-color: var(--color-cyan);
   background: color-mix(in srgb, var(--color-indigo) 9%, transparent);
 }
+.cursor-ring.has-label {
+  width: 58px;
+  height: 58px;
+  margin: -29px 0 0 -29px;
+  border-color: var(--color-indigo);
+  background: var(--background);
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(11, 12, 16, 0.08);
+}
 
 @media (prefers-reduced-motion: reduce) {
   html {
