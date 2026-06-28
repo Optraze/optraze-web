@@ -26,6 +26,10 @@ const FEATURES = [
     name: 'Plain-language analytics',
     desc: 'Ask in plain language, get answers about your customers.',
   },
+  {
+    name: 'Lead Playbooks',
+    desc: 'Conversations become qualified, scored leads — automatically.',
+  },
 ]
 
 const BRIEF = [

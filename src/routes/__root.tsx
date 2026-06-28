@@ -67,7 +67,7 @@ const JSON_LD = {
       operatingSystem: 'Web browser',
       url: 'https://convomem.com',
       description:
-        'Memory layer for conversational AI. Durable customer memory across voice, chat, SMS, and email — automatic fact extraction, identity resolution, sentiment signals, knowledge graph, and PII redaction.',
+        'Memory layer for conversational AI. Durable customer memory across voice, chat, SMS, and email — automatic fact extraction, identity resolution, sentiment signals, lead generation playbooks, knowledge graph, and PII redaction.',
       author: { '@id': `${SITE}/#organization` },
       offers: [
         {
