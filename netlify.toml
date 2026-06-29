@@ -1,5 +1,0 @@
-# Nitro auto-detects the Netlify environment and selects the `netlify` preset;
-# Netlify also auto-detects Nitro. This file just pins the build command
-# explicitly. Set SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY in the Netlify UI.
-[build]
-  command = "npm run build"
