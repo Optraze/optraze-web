@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 
 import type { FormEvent } from 'react'
 
+import { submitSignup } from '@/lib/signup'
+
 import { KineticWords } from './fx'
 import { ArrowRight, Container, Reveal } from './ui'
 
@@ -79,8 +81,20 @@ export function FinalCTA() {
       },
     ])
 
-    // Simulated network write delay
-    await new Promise((resolve) => setTimeout(resolve, 1000))
+    try {
+      await submitSignup({ data: { email, source: 'newsletter' } })
+    } catch {
+      setStatus('error')
+      setLogs((prev) => [
+        ...prev,
+        {
+          id: `srv-err-${Date.now()}`,
+          text: "Error: couldn't register. Please try again.",
+          type: 'warn',
+        },
+      ])
+      return
+    }
 
     setLogs((prev) => [
       ...prev,

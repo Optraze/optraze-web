@@ -1,5 +1,6 @@
-import { ArrowRight, Container, LinkButton, Reveal } from './ui'
+import { Container, Reveal } from './ui'
 import { Badge } from './ui/badge'
+import { WaitlistForm } from './WaitlistForm'
 
 const CAPABILITIES = [
   {
@@ -114,15 +115,11 @@ export function VoiceFlow() {
           </div>
         </div>
 
-        <Reveal className="mt-14 flex flex-wrap items-center gap-3">
-          <LinkButton
-            href="mailto:hello@optraze.com?subject=VoiceFlow%20early%20access"
-            variant="cta"
-            size="lg"
-            magnetic
-          >
-            Get early access <ArrowRight />
-          </LinkButton>
+        <Reveal className="mt-14 flex flex-col items-start gap-3">
+          <span className="font-mono text-xs uppercase tracking-[0.14em] text-ink-3">
+            Join the early-access waitlist
+          </span>
+          <WaitlistForm />
         </Reveal>
       </Container>
     </section>
