@@ -4,31 +4,31 @@ import { Badge } from './ui/badge'
 const FEATURES = [
   {
     name: 'Memory capture',
-    desc: 'Automatic fact extraction from every conversation.',
+    desc: 'Source-grounded facts with speaker attribution and pollable capture status.',
   },
   {
     name: 'Identity resolution',
     desc: 'One person, one profile, across all four channels.',
   },
   {
-    name: 'Sentiment & signals',
-    desc: 'Buying intent, complaints, and churn risk in real time.',
+    name: 'Controlled recall',
+    desc: 'Bounded, topic-aware context with configurable retrieval controls.',
   },
   {
-    name: 'Knowledge graph',
-    desc: 'Every fact connected, queryable, and contextual.',
+    name: 'Memory lifecycle',
+    desc: 'Provenance, versions, expiry, supersession, and reviewable patterns.',
   },
   {
     name: 'PII redaction',
-    desc: 'Sensitive data scrubbed before it is ever stored.',
+    desc: 'Secrets are dropped and sensitive memory candidates follow organization policy.',
   },
   {
     name: 'Plain-language analytics',
     desc: 'Ask in plain language, get answers about your customers.',
   },
   {
-    name: 'Lead Playbooks',
-    desc: 'Conversations become qualified, scored leads — automatically.',
+    name: 'Integration toolkit',
+    desc: 'REST, hosted MCP, webhooks, embeds, and TypeScript, Python, and Rust SDKs.',
   },
 ]
 
