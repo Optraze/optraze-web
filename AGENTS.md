@@ -30,7 +30,8 @@ bun run build
 bun run og              # bun run scripts/generate-og.tsx
 bun run generate-routes  # tsr generate — run after adding/removing a route file
 bun run check           # biome check
-bun test                 # vitest run
+bun run test            # Vitest with the isolated vitest.config.ts
+bunx tsc --noEmit        # TypeScript check
 ```
 
 ## Conventions
@@ -46,4 +47,7 @@ bun test                 # vitest run
 1. New section → new component under `src/components/`, composed into the page — check the existing sections' structure/animation patterns (`motion`) before adding a new one.
 2. Run `bun run generate-routes` if you touch anything under `src/routes/`.
 3. Run `bun run check` and `bun test` before considering a change done.
+   Use `bun run test` for the configured Vitest suite and `bunx tsc --noEmit`
+   plus `bun run build`. Keep production Nitro/TanStack plugins out of the
+   content test runner; a zero-test or skipped suite is not verification.
 4. No customer data, memory content, or product API credentials belong in this repo — it's a public, unauthenticated marketing page.

@@ -20,7 +20,7 @@ const FEATURES = [
   },
   {
     name: 'PII redaction',
-    desc: 'Secrets are dropped and sensitive memory candidates follow organization policy.',
+    desc: 'Secrets are dropped and sensitive memory candidates follow the configured agent policy.',
   },
   {
     name: 'Plain-language analytics',
@@ -95,6 +95,12 @@ export function ConvoMem() {
           </Reveal>
         </div>
 
+        <Reveal as="p" className="mt-10 max-w-[60ch] text-sm text-ink-3">
+          Next-release scope: the controls and integrations below are under
+          final validation. They are not a claim that the new release or SDK
+          packages have already shipped.
+        </Reveal>
+
         {/* feature spec list — hairline rows, no boxes */}
         <div className="mt-12 grid gap-x-16 md:grid-cols-2">
           {FEATURES.map((f, i) => (
@@ -133,9 +139,9 @@ export function ConvoMem() {
               className="mt-5 max-w-[46ch] text-lg text-ink-2"
             >
               Escalate to a human and ConvoMem hands them a brief, not a blank
-              screen — they pick up exactly where the conversation broke down,
-              and the customer never repeats themselves. Drop it into your help
-              desk as an embed, with scoped read or write access.
+              screen — they get the available conversation context and key
+              customer facts, helping reduce repeated questions. Drop it into
+              your help desk as an embed, with scoped read or write access.
             </Reveal>
           </div>
           <Reveal delay={120}>
