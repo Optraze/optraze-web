@@ -69,25 +69,33 @@ const JSON_LD = {
       description:
         'Memory layer for conversational AI. Durable customer memory across voice, chat, SMS, and email — automatic fact extraction, identity resolution, sentiment signals, lead generation playbooks, knowledge graph, and PII redaction.',
       author: { '@id': `${SITE}/#organization` },
+      // Monthly list prices; keep in sync with convoMem-server billing.controller.js PLANS.
       offers: [
         {
           '@type': 'Offer',
           name: 'Starter',
-          price: '99.00',
+          price: '149.00',
           priceCurrency: 'USD',
           availability: 'https://schema.org/InStock',
         },
         {
           '@type': 'Offer',
           name: 'Growth',
-          price: '299.00',
+          price: '399.00',
+          priceCurrency: 'USD',
+          availability: 'https://schema.org/InStock',
+        },
+        {
+          '@type': 'Offer',
+          name: 'Pro',
+          price: '599.00',
           priceCurrency: 'USD',
           availability: 'https://schema.org/InStock',
         },
         {
           '@type': 'Offer',
           name: 'Scale',
-          price: '999.00',
+          price: '1500.00',
           priceCurrency: 'USD',
           availability: 'https://schema.org/InStock',
         },
