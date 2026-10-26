@@ -97,6 +97,9 @@ const JSON_LD = {
           name: 'Scale',
           price: '1500.00',
           priceCurrency: 'USD',
+          description:
+            'Sales-led plan starting at $1,500 per month. Contact ConvoMem for capacity planning and a tailored quote.',
+          url: 'https://convomem.com/contact',
           availability: 'https://schema.org/InStock',
         },
       ],
